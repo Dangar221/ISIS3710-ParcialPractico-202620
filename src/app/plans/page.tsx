@@ -13,11 +13,10 @@ export default async function PlansPage() {
           <Link key={plan.id} href={`/plans/${plan.id}`}>
             <img
               src={plan.image}
-              alt={plan.name}
               className="w-full h-60 object-cover rounded-xl"
             />
-            <h2 className="text-2xl text-slate-900 mt-3">{plan.name}</h2>
-            <p className="flex items-center text-sm text-slate-500">
+            <h4 className="text-2xl text-slate-900 mt-3">{plan.name}</h4>
+            <p className="flex items-center text-sm text-slate-300">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"
@@ -35,7 +34,7 @@ export default async function PlansPage() {
               {plan.creator.name}
             </p>
             <div className="flex justify-between items-center mt-1">
-              <p className="text-slate-500">
+              <p className="text-slate-300">
                 Aproximado: ${plan.estimatedPrice}
               </p>
               <p className="flex items-center text-slate-500">

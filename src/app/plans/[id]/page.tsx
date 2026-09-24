@@ -157,6 +157,7 @@ export default function PlanDetailPage() {
 
             <button
               onClick={handleLike}
+              tabIndex={5}
               className="w-full bg-blue-700 text-white font-semibold rounded-xl py-4 mt-6"
             >
               Me gustó

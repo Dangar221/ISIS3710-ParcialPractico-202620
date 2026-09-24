@@ -6,7 +6,7 @@ export default function Home() {
         TU CIUDAD, HOY
       </span>
 
-      <h1 className="text-6xl font-bold text-slate-900 mt-8">¿Buscas planes?</h1>
+      <p className="text-6xl font-bold text-slate-900 mt-8">¿Buscas planes?</p>
 
       <p className="text-lg text-slate-600 max-w-md mt-2">
         Encuentra eventos espontáneos, actividades con amigos y nuevas
