@@ -157,12 +157,11 @@ export default function PlanDetailPage() {
 
             <button
               onClick={handleLike}
-              tabIndex={5}
               className="w-full bg-blue-700 text-white font-semibold rounded-xl py-4 mt-6"
             >
               Me gustó
             </button>
-            {message && <p className="text-sm text-red-600 mt-2">{message}</p>}
+            {message && <p role="alert" className="text-sm text-red-700 mt-2">{message}</p>}
             <button className="w-full bg-blue-50 text-slate-900 rounded-xl py-3 mt-3">
               Preguntar al anfitrión
             </button>

@@ -32,6 +32,33 @@ export type Plan = {
   };
 };
 
+export type NuevoPlan = {
+  name: string;
+  description: string;
+  estimatedPrice: number;
+  estimatedTime: number; // en minutos
+  recomendations: string;
+  address: string;
+  image: string;
+  userId: string;
+};
+
+// Pide al back la creación de un nuevo plan
+export async function createPlan(data: NuevoPlan): Promise<Plan> {
+  const response = await fetch(`${API_URL}/plans`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  const json = await response.json().catch(() => ({}));
+
+  if (!response.ok) {
+    throw new Error(json.message || "No se pudo crear el plan");
+  }
+
+  return json;
+}
+
 // Pide al back la lista de todos los planes
 export async function getPlans(): Promise<PlanSummary[]> {
   const response = await fetch(`${API_URL}/plans`, { cache: "no-store" });

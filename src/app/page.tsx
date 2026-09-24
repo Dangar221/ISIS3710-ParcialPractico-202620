@@ -6,7 +6,7 @@ export default function Home() {
         TU CIUDAD, HOY
       </span>
 
-      <p className="text-6xl font-bold text-slate-900 mt-8">¿Buscas planes?</p>
+      <h1 className="text-6xl font-bold text-slate-900 mt-8">¿Buscas planes?</h1>
 
       <p className="text-lg text-slate-600 max-w-md mt-2">
         Encuentra eventos espontáneos, actividades con amigos y nuevas
@@ -24,6 +24,7 @@ export default function Home() {
           strokeWidth={2}
           stroke="currentColor"
           className="w-5 h-5 ml-3 text-blue-700"
+          aria-hidden="true"
         >
           <path
             strokeLinecap="round"
@@ -34,6 +35,7 @@ export default function Home() {
         <input
           type="text"
           name="search"
+          aria-label="Buscar planes"
           placeholder="Conciertos, cenas, escapadas..."
           className="flex-1 px-3 outline-none"
         />
@@ -46,7 +48,7 @@ export default function Home() {
       </form>
 
       <p className="text-sm text-slate-600 mt-10">
-        <span className="text-green-700">✓</span> Sin reservas complicadas ni
+        <span className="text-green-700" aria-hidden="true">✓</span> Sin reservas complicadas ni
         ataduras
       </p>
     </div>
