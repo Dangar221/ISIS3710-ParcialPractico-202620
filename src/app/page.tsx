@@ -1,10 +1,4 @@
-type Props = {
-  params: Promise<{ locale: string }>;
-};
-
-export default async function Home({ params }: Props) {
-  const { locale } = await params;
-
+export default function Home() {
   return (
     <div className="flex-1 flex flex-col items-center justify-center bg-slate-50 text-center">
       <span className="bg-blue-100 text-blue-700 text-xs font-bold rounded-full px-4 py-1">
@@ -20,7 +14,7 @@ export default async function Home({ params }: Props) {
       </p>
 
       <form
-        action={`/${locale}/plans`}
+        action="/plans"
         className="flex items-center bg-white rounded-full shadow-lg p-2 mt-10 w-full max-w-md"
       >
         <svg

@@ -3,18 +3,15 @@
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { getSession, clearSession } from "@/services/session";
-import { useLocale } from "next-intl";
-
 
 // Este componente solo se carga en el navegador (ver Header), por eso puede leer el localStorage.
 export default function UserMenu() {
   const router = useRouter();
   const session = getSession();
-  const locale = useLocale();
 
   function handleLogout() {
     clearSession();
-    router.push(`/${locale}/auth/login`);
+    router.push("/auth/login");
   }
 
   // Si hay un id guardado, el usuario inició sesión
@@ -63,11 +60,11 @@ export default function UserMenu() {
 
   return (
     <div className="flex items-center gap-4">
-      <Link href={`/${locale}/auth/login`} className="text-lg text-slate-700">
+      <Link href="/auth/login" className="text-lg text-slate-700">
         Iniciar sesión
       </Link>
       <Link
-        href={`/${locale}/auth/register`}
+        href="/auth/register"
         className="bg-blue-600 text-white text-lg font-semibold rounded-xl px-6 py-3"
       >
         Registrarse
