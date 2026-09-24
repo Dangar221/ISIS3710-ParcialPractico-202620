@@ -1,7 +1,12 @@
 import Link from "next/link";
 import { getPlans } from "@/services/plans";
 
-export default async function PlansPage() {
+type Props = {
+  params: Promise<{ locale: string }>;
+};
+
+export default async function PlansPage({ params }: Props) {
+  const { locale } = await params;
   const plans = await getPlans();
 
   return (
@@ -10,7 +15,7 @@ export default async function PlansPage() {
 
       <div className="grid grid-cols-4 gap-8 mt-12">
         {plans.map((plan) => (
-          <Link key={plan.id} href={`/plans/${plan.id}`}>
+          <Link key={plan.id} href={`/${locale}/plans/${plan.id}`}>
             <img
               src={plan.image}
               alt={plan.name}

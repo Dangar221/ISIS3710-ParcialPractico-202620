@@ -3,11 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { useParams, useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { getSession } from "@/services/session";
 import { getPlan, likePlan, Plan } from "@/services/plans";
 
 export default function PlanDetailPage() {
   const router = useRouter();
+  const locale = useLocale();
   const { id } = useParams<{ id: string }>();
 
   // undefined = cargando, null = no existe
@@ -32,7 +34,7 @@ export default function PlanDetailPage() {
     const session = getSession();
 
     if (!session.id) {
-      router.push("/auth/login");
+      router.push(`/${locale}/auth/login`);
       return;
     }
 
@@ -57,7 +59,7 @@ export default function PlanDetailPage() {
     <div className="flex-1 bg-slate-50 px-20 py-6">
       {/* Barra de arriba */}
       <div className="flex justify-between items-center">
-        <Link href="/plans" className="text-slate-700">
+        <Link href={`/${locale}/plans`} className="text-slate-700">
           ← Volver a planes
         </Link>
         

@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { register } from "@/services/auth";
 import { saveSession } from "@/services/session";
 
 export default function RegisterPage() {
   const router = useRouter();
+  const locale = useLocale();
   const [username, setUsername] = useState("");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -20,7 +22,7 @@ export default function RegisterPage() {
     try {
       const id = await register(username, email, name, password);
       saveSession(id, username);
-      router.push("/plans");
+      router.push(`/${locale}/plans`);
     } catch (err) {
       setError("No se pudo crear la cuenta, revisa los datos");
       console.log(err);

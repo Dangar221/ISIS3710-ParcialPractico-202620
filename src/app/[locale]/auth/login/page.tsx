@@ -2,11 +2,13 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useLocale } from "next-intl";
 import { login } from "@/services/auth";
 import { saveSession } from "@/services/session";
 
 export default function LoginPage() {
   const router = useRouter();
+  const locale = useLocale();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -18,7 +20,7 @@ export default function LoginPage() {
     try {
       const user = await login(email, password);
       saveSession(user.id, user.userName);
-      router.push("/plans");
+      router.push(`/${locale}/plans`);
     } catch (err) {
       setError("Correo o contraseña incorrectos");
       console.log(err);
